@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url';
 import { fetchTRMData } from './services/trmService.js';
 import { fetchExtraRates } from './services/extraRatesService.js';
 import { initScheduler } from './cron/scheduler.js';
+import { recordVisit, getStats, resetStats } from './services/statsService.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -23,9 +24,29 @@ app.use(express.static(path.join(__dirname, '../public'), {
   maxAge: '1h'
 }));
 
+// Middleware de analítica interna en tiempo real (ignora estáticos y admin)
+app.use((req, res, next) => {
+  recordVisit(req);
+  next();
+});
+
 // Endpoint de Salud para Coolify / Docker
 app.get('/health', (req, res) => {
   res.status(200).json({ status: 'ok', uptime: process.uptime() });
+});
+
+// PANEL DE TRÁFICO EN VIVO
+app.get('/stats', (req, res) => {
+  res.render('stats');
+});
+
+// API DE ESTADÍSTICAS
+app.get('/api/stats', (req, res) => {
+  res.json(getStats());
+});
+
+app.post('/api/stats/reset', (req, res) => {
+  res.json(resetStats());
 });
 
 // Endpoint API JSON de la TRM

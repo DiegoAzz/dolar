@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estadísticas en Vivo — Dólar AppzPlay</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+  </style>
+</head>
+<body class="bg-[#0B0F19] text-white min-h-screen p-4 sm:p-8 flex flex-col items-center antialiased">
+
+  <div class="max-w-4xl w-full">
+    
+    <!-- Cabecera -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-6 mb-8">
+      <div class="flex items-center gap-3">
+        <a href="/" class="w-10 h-10 rounded-xl bg-emerald-600 flex items-center justify-center font-bold text-white shadow-lg shadow-emerald-500/30 text-lg hover:scale-105 transition-transform">
+          ⚡
+        </a>
+        <div>
+          <h1 class="text-xl font-bold text-white flex items-center gap-2">
+            Panel de Tráfico en Vivo
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 uppercase">Dólar AppzPlay</span>
+          </h1>
+          <p class="text-xs text-slate-400">Estadísticas internas en tiempo real sin necesidad de entrar a Google</p>
+        </div>
+      </div>
+
+      <!-- Controles Superiores -->
+      <div class="flex items-center gap-2">
+        <button id="btn-admin-filter" onclick="toggleAdminFilter()" class="px-3.5 py-2 text-xs font-bold bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl border border-slate-700 transition flex items-center gap-1.5 shadow">
+          🛡️ Ignorar mis visitas
+        </button>
+        <button onclick="resetStats()" class="px-3.5 py-2 text-xs font-bold bg-red-950/40 hover:bg-red-900/60 text-red-300 rounded-xl border border-red-800/60 transition flex items-center gap-1" title="Reiniciar contador a 0">
+          🧹 Limpiar
+        </button>
+        <button onclick="loadStats()" class="px-3 py-2 text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl shadow transition" title="Refrescar">
+          🔄
+        </button>
+      </div>
+    </div>
+
+    <!-- Tarjetas Principales -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+      
+      <!-- Visitas Hoy -->
+      <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl relative overflow-hidden shadow-lg">
+        <div class="absolute top-0 right-0 w-24 h-24 bg-emerald-500/10 rounded-full blur-xl pointer-events-none"></div>
+        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Visitas Hoy</span>
+        <div class="text-4xl font-extrabold text-emerald-400 mt-2 font-mono" id="stat-today">0</div>
+        <span class="text-[11px] text-slate-500 mt-1 block">Personas que entraron hoy</span>
+      </div>
+
+      <!-- Acumulado Total -->
+      <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl relative overflow-hidden shadow-lg">
+        <div class="absolute top-0 right-0 w-24 h-24 bg-sky-500/10 rounded-full blur-xl pointer-events-none"></div>
+        <span class="text-xs font-bold text-sky-400 uppercase tracking-wider">Acumulado Total</span>
+        <div class="text-4xl font-extrabold text-sky-400 mt-2 font-mono" id="stat-total">0</div>
+        <span class="text-[11px] text-slate-400 mt-1 block">Todas las visitas históricas</span>
+      </div>
+
+      <!-- Dispositivo Principal -->
+      <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl relative overflow-hidden shadow-lg">
+        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Dispositivo Principal</span>
+        <div class="text-2xl font-bold text-white mt-2 flex items-center gap-2">
+          <span id="stat-device">📱 Celulares</span>
+        </div>
+        <span class="text-[11px] text-slate-500 mt-1 block" id="stat-device-detail">Móviles vs Computadores</span>
+      </div>
+
+    </div>
+
+    <!-- Grilla de Fuentes y Días -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+      
+      <!-- Desglose de Fuentes de Tráfico -->
+      <div class="bg-slate-900/40 border border-slate-800 p-6 rounded-2xl shadow-lg">
+        <h2 class="text-base font-bold text-white mb-4 flex items-center gap-2">
+          <span>🌐 ¿De dónde llegan tus visitantes?</span>
+        </h2>
+        <div id="sources-container" class="space-y-3">
+          <!-- Inyectado por JS -->
+        </div>
+      </div>
+
+      <!-- Acumulado e Historial por Día -->
+      <div class="bg-slate-900/40 border border-slate-800 p-6 rounded-2xl shadow-lg">
+        <h2 class="text-base font-bold text-white mb-4 flex items-center gap-2">
+          <span>📅 Historial Acumulado por Día</span>
+        </h2>
+        <div id="dates-container" class="space-y-3 max-h-64 overflow-y-auto pr-1">
+          <!-- Inyectado por JS -->
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="mt-8 text-center text-xs text-slate-500">
+      Dólar AppzPlay Analytics Engine &bull; Actualizado en tiempo real
+    </div>
+
+  </div>
+
+  <script>
+    function getTodayColombiaString() {
+      const now = new Date();
+      return new Intl.DateTimeFormat('en-CA', {
+        timeZone: 'America/Bogota',
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit'
+      }).format(now);
+    }
+
+    async function loadStats() {
+      try {
+        const res = await fetch('/api/stats');
+        const data = await res.json();
+        
+        const todayKey = getTodayColombiaString();
+        const todayViews = data.byDate?.[todayKey] || 0;
+        
+        // 1. Visitas Hoy y Total
+        document.getElementById('stat-today').innerText = todayViews.toLocaleString();
+        document.getElementById('stat-total').innerText = (data.totalViews || 0).toLocaleString();
+
+        // 2. Dispositivos
+        const mob = data.devices?.mobile || 0;
+        const desk = data.devices?.desktop || 0;
+        const totalDev = (mob + desk) || 1;
+        const mobPct = Math.round((mob / totalDev) * 100);
+
+        if (mob === 0 && desk === 0) {
+          document.getElementById('stat-device').innerText = 'Sin datos';
+        } else {
+          document.getElementById('stat-device').innerText = mob >= desk ? `📱 ${mobPct}% Móvil` : `💻 ${100 - mobPct}% PC`;
+        }
+        document.getElementById('stat-device-detail').innerText = `${mob} desde celulares • ${desk} desde computadores`;
+
+        // 3. Fuentes
+        const sourcesDiv = document.getElementById('sources-container');
+        const sources = data.sources || {};
+        const entries = Object.entries(sources).sort((a,b) => b[1] - a[1]);
+        
+        if (entries.length === 0) {
+          sourcesDiv.innerHTML = '<p class="text-xs text-slate-500 py-4 text-center">Esperando primeras visitas...</p>';
+        } else {
+          const maxVal = Math.max(...entries.map(e => e[1])) || 1;
+          sourcesDiv.innerHTML = entries.map(([name, count]) => {
+            const pct = Math.round((count / (data.totalViews || 1)) * 100);
+            let icon = '🔗 Enlace Directo';
+            let barColor = 'bg-sky-500';
+
+            if (name.includes('WhatsApp')) {
+              icon = '🟢 WhatsApp';
+              barColor = 'bg-emerald-500';
+            } else if (name.includes('Telegram')) {
+              icon = '✈️ Telegram';
+              barColor = 'bg-sky-400';
+            } else if (name.includes('Facebook')) {
+              icon = '🔵 Facebook';
+              barColor = 'bg-blue-600';
+            } else if (name.includes('Instagram')) {
+              icon = '🟣 Instagram';
+              barColor = 'bg-pink-500';
+            } else if (name.includes('Google')) {
+              icon = '🔴 Google';
+              barColor = 'bg-red-500';
+            } else if (name.includes('Twitter')) {
+              icon = '⚫ Twitter / X';
+              barColor = 'bg-slate-400';
+            }
+
+            return `
+              <div class="flex items-center justify-between text-xs py-2 border-b border-slate-800/60 last:border-0">
+                <span class="font-semibold text-slate-200">${icon}</span>
+                <div class="flex items-center gap-3">
+                  <div class="w-24 bg-slate-800 rounded-full h-2 overflow-hidden hidden sm:block">
+                    <div class="${barColor} h-2 rounded-full transition-all duration-500" style="width: ${(count / maxVal) * 100}%"></div>
+                  </div>
+                  <span class="font-bold text-white font-mono">${count} (${pct}%)</span>
+                </div>
+              </div>
+            `;
+          }).join('');
+        }
+
+        // 4. Historial por Día
+        const datesDiv = document.getElementById('dates-container');
+        const byDate = data.byDate || {};
+        const dateEntries = Object.entries(byDate).sort((a, b) => b[0].localeCompare(a[0])); // Más reciente primero
+
+        if (dateEntries.length === 0) {
+          datesDiv.innerHTML = '<p class="text-xs text-slate-500 py-4 text-center">Aún no hay días registrados.</p>';
+        } else {
+          const maxDateVal = Math.max(...dateEntries.map(e => e[1])) || 1;
+          datesDiv.innerHTML = dateEntries.map(([d, count]) => {
+            const parts = d.split('-');
+            const formattedDate = parts.length === 3 ? `${parts[2]}/${parts[1]}/${parts[0]}` : d;
+            return `
+              <div class="flex items-center justify-between text-xs py-2 border-b border-slate-800/60 last:border-0">
+                <span class="font-mono text-slate-300 font-semibold">📅 ${formattedDate}</span>
+                <div class="flex items-center gap-3">
+                  <div class="w-24 bg-slate-800 rounded-full h-2 overflow-hidden hidden sm:block">
+                    <div class="bg-emerald-500 h-2 rounded-full transition-all duration-500" style="width: ${(count / maxDateVal) * 100}%"></div>
+                  </div>
+                  <span class="font-bold text-emerald-400 font-mono">${count} visitas</span>
+                </div>
+              </div>
+            `;
+          }).join('');
+        }
+
+      } catch (err) {
+        console.error('Error cargando estadísticas:', err);
+      }
+    }
+
+    async function resetStats() {
+      if (!confirm('¿Estás seguro de que deseas reiniciar el contador a 0?')) return;
+      try {
+        const res = await fetch('/api/stats/reset', { method: 'POST' });
+        if (res.ok) {
+          alert('✅ Contador reiniciado a 0.');
+          loadStats();
+        }
+      } catch (e) {
+        alert('Error al reiniciar.');
+      }
+    }
+
+    function checkAdminStatus() {
+      const btn = document.getElementById('btn-admin-filter');
+      const isIgnoring = document.cookie.includes('dolar_admin=1');
+      if (isIgnoring) {
+        btn.innerText = '🛡️ Modo Dueño ACTIVO (No te cuenta)';
+        btn.classList.add('bg-emerald-600', 'text-white', 'border-emerald-500');
+        btn.classList.remove('bg-slate-800', 'text-slate-300');
+      } else {
+        btn.innerText = '🛡️ Ignorar mis visitas';
+        btn.classList.remove('bg-emerald-600', 'text-white', 'border-emerald-500');
+        btn.classList.add('bg-slate-800', 'text-slate-300');
+      }
+    }
+
+    function toggleAdminFilter() {
+      const isIgnoring = document.cookie.includes('dolar_admin=1');
+      if (isIgnoring) {
+        document.cookie = 'dolar_admin=0; path=/; max-age=0';
+        alert('Ahora tus visitas SÍ se contarán en las estadísticas.');
+      } else {
+        document.cookie = 'dolar_admin=1; path=/; max-age=31536000';
+        alert('✅ ¡Modo Dueño activado! A partir de ahora cuando navegues en el sitio, tus visitas no alterarán el contador.');
+      }
+      checkAdminStatus();
+    }
+
+    checkAdminStatus();
+    loadStats();
+    setInterval(loadStats, 10000); // Refresca solo cada 10 segundos
+  </script>
+</body>
+</html>
