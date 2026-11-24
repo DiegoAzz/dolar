@@ -12,6 +12,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const SITE_URL = process.env.SITE_URL || 'https://dolar.appzplay.online';
 const ADSENSE_ID = process.env.ADSENSE_CLIENT_ID || 'ca-pub-XXXXXXXXXXXXXXXX';
+const TELEGRAM_URL = process.env.TELEGRAM_CHANNEL_URL 
+  || (process.env.TELEGRAM_CHANNEL_ID ? `https://t.me/${process.env.TELEGRAM_CHANNEL_ID.replace('@', '')}` : 'https://t.me/DolarAppzPlay_bot');
 
 // Configurar EJS como motor de plantillas
 app.set('view engine', 'ejs');
@@ -79,6 +81,7 @@ app.get('/', async (req, res) => {
       siteUrl: SITE_URL,
       canonicalPath: '',
       adsenseId: ADSENSE_ID,
+      telegramUrl: TELEGRAM_URL,
       trm: trmData,
       extras,
       structuredData
@@ -103,6 +106,7 @@ app.get('/historico', async (req, res) => {
       siteUrl: SITE_URL,
       canonicalPath: '/historico',
       adsenseId: ADSENSE_ID,
+      telegramUrl: TELEGRAM_URL,
       trm: trmData
     });
   } catch (error) {
@@ -118,7 +122,8 @@ app.get('/privacidad', (req, res) => {
     description: 'Política de privacidad, uso de cookies de terceros y protección de datos conforme a la legislación colombiana y Google AdSense.',
     siteUrl: SITE_URL,
     canonicalPath: '/privacidad',
-    adsenseId: ADSENSE_ID
+    adsenseId: ADSENSE_ID,
+    telegramUrl: TELEGRAM_URL
   });
 });
 
@@ -129,7 +134,8 @@ app.get('/terminos', (req, res) => {
     description: 'Términos de servicio, descargo de responsabilidad financiera y condiciones de uso del portal Dólar AppzPlay.',
     siteUrl: SITE_URL,
     canonicalPath: '/terminos',
-    adsenseId: ADSENSE_ID
+    adsenseId: ADSENSE_ID,
+    telegramUrl: TELEGRAM_URL
   });
 });
 
@@ -140,7 +146,8 @@ app.get('/contacto', (req, res) => {
     description: 'Información institucional sobre el proyecto Dólar AppzPlay y canales de contacto oficial.',
     siteUrl: SITE_URL,
     canonicalPath: '/contacto',
-    adsenseId: ADSENSE_ID
+    adsenseId: ADSENSE_ID,
+    telegramUrl: TELEGRAM_URL
   });
 });
 
