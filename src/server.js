@@ -12,8 +12,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const SITE_URL = process.env.SITE_URL || 'https://dolar.appzplay.online';
 const ADSENSE_ID = process.env.ADSENSE_CLIENT_ID || 'ca-pub-XXXXXXXXXXXXXXXX';
-const TELEGRAM_URL = process.env.TELEGRAM_CHANNEL_URL 
-  || (process.env.TELEGRAM_CHANNEL_ID ? `https://t.me/${process.env.TELEGRAM_CHANNEL_ID.replace('@', '')}` : 'https://t.me/DolarAppzPlay_bot');
+const TELEGRAM_URL = process.env.TELEGRAM_CHANNEL_URL || 'https://t.me/+hLULrDoazSwzNWNh';
 
 // Configurar EJS como motor de plantillas
 app.set('view engine', 'ejs');
