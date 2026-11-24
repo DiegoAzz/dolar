@@ -1,0 +1,3 @@
+# Archivo ads.txt para Dólar AppzPlay (dolar.appzplay.online)
+# Reemplaza pub-XXXXXXXXXXXXXXXX con tu ID de editor de AdSense si ya lo tienes
+google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0

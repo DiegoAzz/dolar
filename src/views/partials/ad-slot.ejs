@@ -1,0 +1,18 @@
+<% if (adsenseId && adsenseId !== 'ca-pub-XXXXXXXXXXXXXXXX') { %>
+  <div class="w-full my-6 flex flex-col items-center justify-center overflow-hidden">
+    <div class="text-[9px] uppercase tracking-wider text-slate-500 font-semibold mb-1">Publicidad</div>
+    <div class="w-full bg-slate-900/50 border border-slate-800/80 rounded-xl min-h-[100px] flex items-center justify-center overflow-hidden">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="<%= adsenseId %>"
+           data-ad-slot="<%= typeof slotId !== 'undefined' ? slotId : '' %>"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </div>
+<% } else { %>
+  <!-- Espacio reservado para banner publicitario (Se activará automáticamente al configurar ADSENSE_CLIENT_ID) -->
+<% } %>
