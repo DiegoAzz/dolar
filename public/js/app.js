@@ -226,10 +226,11 @@ document.addEventListener('DOMContentLoaded', () => {
           // Si el navegador soporta compartir archivos nativos (Android / iOS)
           if (navigator.canShare && navigator.canShare({ files: [file] })) {
             try {
+              const tgUrl = config.telegramUrl || 'https://t.me/+hLULrDoazSwzNWNh';
               await navigator.share({
                 files: [file],
                 title: 'Dólar Hoy en Colombia',
-                text: `💵 Dólar Oficial Hoy: ${config.trmFormatted} COP. Míralo en vivo: https://dolar.appzplay.online`
+                text: `🇨🇴 Dólar Oficial Hoy: ${config.trmFormatted} COP\n📊 Calcula en vivo: https://dolar.appzplay.online\n✈️ Únete a nuestro canal de Telegram: ${tgUrl}`
               });
             } catch (shareErr) {
               if (shareErr.name !== 'AbortError') {
