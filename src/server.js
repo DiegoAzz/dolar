@@ -3,7 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { fetchTRMData } from './services/trmService.js';
 import { fetchExtraRates } from './services/extraRatesService.js';
-import { initScheduler } from './cron/scheduler.js';
+import { initScheduler, checkAndSendTomorrowAlert, checkAndSendMorningAlert } from './cron/scheduler.js';
 import { recordVisit, getStats, resetStats } from './services/statsService.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -47,6 +47,25 @@ app.get('/api/stats', (req, res) => {
 
 app.post('/api/stats/reset', (req, res) => {
   res.json(resetStats());
+});
+
+// DISPARADORES MANUALES DE TELEGRAM (Para pruebas inmediatas)
+app.get('/api/telegram/trigger-tomorrow', async (req, res) => {
+  try {
+    const success = await checkAndSendTomorrowAlert(true);
+    res.json({ success, message: success ? 'Alerta de mañana enviada a Telegram' : 'No se pudo enviar o no está publicada la TRM de mañana' });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+app.get('/api/telegram/trigger-morning', async (req, res) => {
+  try {
+    const success = await checkAndSendMorningAlert(true);
+    res.json({ success, message: success ? 'Reporte matutino enviado a Telegram' : 'No se pudo enviar el reporte matutino' });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
 });
 
 // Endpoint API JSON de la TRM

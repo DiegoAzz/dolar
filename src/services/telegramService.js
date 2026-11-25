@@ -1,9 +1,9 @@
 export async function sendTelegramMessage(text) {
-  const token = process.env.TELEGRAM_BOT_TOKEN;
-  const channelId = process.env.TELEGRAM_CHANNEL_ID;
+  const token = process.env.TELEGRAM_BOT_TOKEN || '9150712844:AAH9yfeLCTopaYtDLKoKDwFpxaHqrL9DwXI';
+  const channelId = process.env.TELEGRAM_CHANNEL_ID || '-1003951135075';
 
   if (!token || !channelId) {
-    console.log('[Telegram] Bot no configurado (TELEGRAM_BOT_TOKEN o TELEGRAM_CHANNEL_ID vacíos). Mensaje omitido.');
+    console.log('[Telegram] Bot no configurado. Mensaje omitido.');
     return false;
   }
 

@@ -1,5 +1,9 @@
 FROM node:22-alpine
 
+# Instalar zona horaria para que el cron funcione en hora de Colombia (America/Bogota)
+RUN apk add --no-cache tzdata
+ENV TZ=America/Bogota
+
 WORKDIR /app
 
 # Instalar dependencias
