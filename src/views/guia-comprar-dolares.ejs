@@ -1,0 +1,81 @@
+<%- include('partials/header') %>
+
+<article class="max-w-3xl mx-auto space-y-8 text-slate-300">
+  
+  <header class="space-y-4 border-b border-slate-800 pb-6">
+    <div class="flex items-center gap-2">
+      <a href="/guias" class="text-xs font-semibold text-emerald-400 hover:underline flex items-center gap-1">
+        &larr; Volver a Guías
+      </a>
+      <span class="text-slate-600">•</span>
+      <span class="text-xs text-slate-400">Lectura de 5 min</span>
+    </div>
+    <h1 class="text-2xl sm:text-4xl font-extrabold text-white leading-tight">
+      Cuándo y Dónde es Mejor Comprar Dólares en Colombia: TRM vs Casas de Cambio
+    </h1>
+    <p class="text-sm sm:text-base text-slate-400 leading-relaxed">
+      Tanto si vas a viajar al exterior, ahorrar en moneda dura o hacer negocios, comprar dólares en el momento y lugar incorrecto puede hacerte perder mucho dinero. Te mostramos cómo funciona el reloj cambiario colombiano.
+    </p>
+  </header>
+
+  <%- include('partials/ad-slot') %>
+
+  <div class="space-y-6 text-sm leading-relaxed">
+    
+    <h2 class="text-lg font-bold text-white pt-2">1. El horario del mercado interbancario de divisas</h2>
+    <p>
+      En Colombia, la compra y venta masiva de dólares entre bancos, fondos de pensiones y grandes importadores/exportadores se realiza a través de la plataforma <b>Set-FX</b>. Este mercado opera exclusivamente:
+    </p>
+    <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 text-xs font-mono text-emerald-400">
+      ⏰ Lunes a Viernes: 8:00 AM a 1:00 PM (Hora de Colombia)
+    </div>
+    <p>
+      Durante esa ventana de 5 horas, el precio fluctúa minuto a minuto según las noticias internacionales, el precio del petróleo y las decisiones de la Reserva Federal (Fed).
+    </p>
+
+    <h2 class="text-lg font-bold text-white pt-2">2. El poder de las 4:30 PM: La ventaja del día siguiente</h2>
+    <p>
+      A las 4:30 PM de cada día hábil, la <b>Superintendencia Financiera de Colombia</b> emite la certificación oficial de la TRM que regirá el día hábil siguiente.
+    </p>
+    <div class="rounded-2xl bg-sky-950/30 border border-sky-500/30 p-5">
+      <h3 class="font-bold text-sky-400 text-sm mb-1">🎯 Cómo sacar ventaja de esta información:</h3>
+      <p class="text-xs text-slate-300">
+        Si a las 4:30 PM ves en nuestra plataforma o en nuestro canal de Telegram que el dólar <b>va a subir con fuerza mañana</b>, tienes la tarde de hoy para realizar tus pagos con tarjeta o adelantar compras en dólares a la tasa más barata de hoy.
+      </p>
+    </div>
+
+    <h2 class="text-lg font-bold text-white pt-2">3. ¿Casas de cambio físicas o plataformas digitales?</h2>
+    <p>
+      Dependiendo de lo que necesites, cada canal tiene sus ventajas:
+    </p>
+    <ul class="list-disc pl-5 space-y-3 text-slate-400">
+      <li>
+        <b>Casas de Cambio Físicas (Efectivo):</b> Ideales si vas a viajar y necesitas billetes en mano. En ciudades como Bogotá (Centro Comercial Salitre Plaza, Unicentro) o Medellín (El Poblado, Oviedo), las casas de cambio suelen vender billetes a un precio entre $40 y $100 COP <b>por debajo de la TRM oficial</b> debido a la alta oferta de efectivo de turistas.
+      </li>
+      <li>
+        <b>Cuentas en Dólares Globales (DolarApp, Littio, Global66):</b> Te permiten comprar dólares digitales o USDT desde tu cuenta bancaria colombiana en cualquier horario, congelando la tasa en segundos sin cargar efectivo en la calle.
+      </li>
+    </ul>
+
+    <h2 class="text-lg font-bold text-white pt-2">4. Los Fines de Semana y Días Festivos</h2>
+    <p>
+      La TRM calculada el viernes en la tarde rige durante todo el sábado, domingo y los días festivos (como los puentes de la Ley Emiliani) hasta el siguiente día hábil. Esto significa que durante 3 o 4 días seguidos el precio oficial está 100% congelado y predecible.
+    </p>
+
+  </div>
+
+  <div class="rounded-3xl bg-slate-900 border border-slate-800 p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div>
+      <h4 class="font-bold text-white text-sm">Recibe la TRM de mañana primero</h4>
+      <p class="text-xs text-slate-400">Te avisamos automáticamente de lunes a viernes a las 4:30 PM.</p>
+    </div>
+    <a href="https://t.me/+hLULrDoazSwzNWNh" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs transition-colors shadow-lg shadow-sky-600/20 shrink-0 flex items-center gap-2">
+      <span>Unirme a Telegram</span> &rarr;
+    </a>
+  </div>
+
+  <%- include('partials/ad-slot') %>
+
+</article>
+
+<%- include('partials/footer') %>

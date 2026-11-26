@@ -154,6 +154,51 @@ app.get('/historico', async (req, res) => {
   }
 });
 
+// PÁGINAS DE GUÍAS FINANCIERAS (SEO & ADSENSE DEPTH)
+app.get('/guias', (req, res) => {
+  res.render('guias', {
+    title: 'Guías del Dólar y Divisas en Colombia | Dólar AppzPlay',
+    description: 'Aprende a proteger tu dinero frente a la TRM, cómo pagar compras internacionales con tarjeta y recibir remesas con la menor comisión.',
+    siteUrl: SITE_URL,
+    canonicalPath: '/guias',
+    adsenseId: ADSENSE_ID,
+    telegramUrl: TELEGRAM_URL
+  });
+});
+
+app.get('/guias/compras-tarjeta-dolares-colombia', (req, res) => {
+  res.render('guia-tarjetas', {
+    title: 'Cómo Pagar Compras en Dólares con Tarjeta en Colombia | Dólar AppzPlay',
+    description: 'Guía práctica para evitar el sobreprecio de conversión de divisas en Amazon y PayPal, y comisiones de bancos colombianos.',
+    siteUrl: SITE_URL,
+    canonicalPath: '/guias/compras-tarjeta-dolares-colombia',
+    adsenseId: ADSENSE_ID,
+    telegramUrl: TELEGRAM_URL
+  });
+});
+
+app.get('/guias/mejor-momento-comprar-dolares-colombia', (req, res) => {
+  res.render('guia-comprar-dolares', {
+    title: 'Cuándo y Dónde Comprar Dólares en Colombia | Dólar AppzPlay',
+    description: 'Horarios de Set-FX, por qué la TRM de las 4:30 PM te da ventaja y comparativa de casas de cambio físicas vs plataformas digitales.',
+    siteUrl: SITE_URL,
+    canonicalPath: '/guias/mejor-momento-comprar-dolares-colombia',
+    adsenseId: ADSENSE_ID,
+    telegramUrl: TELEGRAM_URL
+  });
+});
+
+app.get('/guias/remesas-recibir-dolares-colombia', (req, res) => {
+  res.render('guia-remesas', {
+    title: 'Cómo Recibir Remesas en Dólares en Colombia con la Mejor Tasa | Dólar AppzPlay',
+    description: 'Comparativa de Western Union, Bancolombia, Daviplata y cuentas fintech en dólares para cobrar giros con el menor spread.',
+    siteUrl: SITE_URL,
+    canonicalPath: '/guias/remesas-recibir-dolares-colombia',
+    adsenseId: ADSENSE_ID,
+    telegramUrl: TELEGRAM_URL
+  });
+});
+
 // PÁGINA POLÍTICA DE PRIVACIDAD
 app.get('/privacidad', (req, res) => {
   res.render('privacidad', {

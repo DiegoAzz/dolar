@@ -1,0 +1,92 @@
+<%- include('partials/header') %>
+
+<article class="max-w-3xl mx-auto space-y-8 text-slate-300">
+  
+  <header class="space-y-4 border-b border-slate-800 pb-6">
+    <div class="flex items-center gap-2">
+      <a href="/guias" class="text-xs font-semibold text-emerald-400 hover:underline flex items-center gap-1">
+        &larr; Volver a Guías
+      </a>
+      <span class="text-slate-600">•</span>
+      <span class="text-xs text-slate-400">Lectura de 4 min</span>
+    </div>
+    <h1 class="text-2xl sm:text-4xl font-extrabold text-white leading-tight">
+      Cómo Recibir Remesas y Pagos en Dólares en Colombia con la Mejor Tasa
+    </h1>
+    <p class="text-sm sm:text-base text-slate-400 leading-relaxed">
+      Millones de colombianos reciben dinero del exterior enviado por familiares en Estados Unidos o España, o trabajan como freelancers cobrando en dólares. Comparamos las opciones para que no te quiten hasta un 10% en el camino.
+    </p>
+  </header>
+
+  <%- include('partials/ad-slot') %>
+
+  <div class="space-y-6 text-sm leading-relaxed">
+    
+    <h2 class="text-lg font-bold text-white pt-2">1. ¿Qué se queda la entidad que te transfiere?</h2>
+    <p>
+      Al recibir un giro internacional en Colombia, intervienen dos costos principales:
+    </p>
+    <ol class="list-decimal pl-5 space-y-2 text-slate-400">
+      <li><b>Comisión fija por transferencia:</b> Lo que paga quien envía (suele ir de $2 a $15 USD).</li>
+      <li><b>El diferencial de la tasa cambiaria (Spread):</b> La diferencia entre la TRM oficial y la tasa que te paga la empresa receptora. Este es el cobro invisible más costoso.</li>
+    </ol>
+
+    <h2 class="text-lg font-bold text-white pt-2">2. Comparativa de Plataformas en Colombia</h2>
+
+    <div class="space-y-3">
+      <!-- Western Union -->
+      <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800">
+        <div class="flex items-center justify-between">
+          <span class="font-bold text-white text-sm">Western Union / Giros Efectivo</span>
+          <span class="text-xs text-amber-400 font-semibold">Spread Alto (3% a 6%)</span>
+        </div>
+        <p class="text-xs text-slate-400 mt-1">
+          Muy fácil de cobrar en efectivo en puntos Giros y Finanzas o Efecty, pero aplican una tasa de cambio considerablemente más baja que la TRM del día.
+        </p>
+      </div>
+
+      <!-- Abono Bancario Directo -->
+      <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800">
+        <div class="flex items-center justify-between">
+          <span class="font-bold text-white text-sm">Bancolombia / Daviplata Remesas</span>
+          <span class="text-xs text-sky-400 font-semibold">Tasa Competitiva (1% a 2%)</span>
+        </div>
+        <p class="text-xs text-slate-400 mt-1">
+          Si activas el "Abono Automático" en la Sucursal Virtual, el dinero entra directo a tu cuenta de ahorros a una tasa muy cercana a la TRM oficial sin costo de retiro.
+        </p>
+      </div>
+
+      <!-- Cuentas Fintech Globales -->
+      <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800">
+        <div class="flex items-center justify-between">
+          <span class="font-bold text-white text-sm">DolarApp / Wise / Cripto USDT</span>
+          <span class="text-xs text-emerald-400 font-semibold">Mejor Tasa (Casi 0% Spread)</span>
+        </div>
+        <p class="text-xs text-slate-400 mt-1">
+          La opción predilecta para freelancers y trabajadores remotos. Recibes en cuenta bancaria de EE. UU. (número de ruta y cuenta) y transfieres a pesos colombianos por Transfiya en segundos a tasa casi idéntica a la TRM.
+        </p>
+      </div>
+    </div>
+
+    <h2 class="text-lg font-bold text-white pt-2">3. Exención del 4x1000 en Remesas</h2>
+    <p>
+      En Colombia, las remesas familiares provenientes del exterior están legalmente <b>exentas del Gravamen a los Movimientos Financieros (4x1000)</b> si el monto mensual no supera el tope legal estipulado por la DIAN (generalmente hasta cierta cantidad de UVT). Asegúrate de que tu banco tenga marcada la cuenta receptora con dicho beneficio.
+    </p>
+
+  </div>
+
+  <div class="rounded-3xl bg-slate-900 border border-slate-800 p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div>
+      <h4 class="font-bold text-white text-sm">Compara la TRM oficial antes de cobrar</h4>
+      <p class="text-xs text-slate-400">Verifica que no te estén pagando menos de lo justo.</p>
+    </div>
+    <a href="/" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition-colors shadow-lg shadow-emerald-600/20 shrink-0">
+      Ver TRM de Hoy &rarr;
+    </a>
+  </div>
+
+  <%- include('partials/ad-slot') %>
+
+</article>
+
+<%- include('partials/footer') %>

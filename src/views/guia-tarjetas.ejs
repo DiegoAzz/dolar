@@ -1,0 +1,109 @@
+<%- include('partials/header') %>
+
+<article class="max-w-3xl mx-auto space-y-8 text-slate-300">
+  
+  <!-- Encabezado del Artículo -->
+  <header class="space-y-4 border-b border-slate-800 pb-6">
+    <div class="flex items-center gap-2">
+      <a href="/guias" class="text-xs font-semibold text-emerald-400 hover:underline flex items-center gap-1">
+        &larr; Volver a Guías
+      </a>
+      <span class="text-slate-600">•</span>
+      <span class="text-xs text-slate-400">Lectura de 4 min</span>
+    </div>
+    <h1 class="text-2xl sm:text-4xl font-extrabold text-white leading-tight">
+      Cómo Pagar Compras en Dólares con Tarjeta en Colombia sin Perder Plata
+    </h1>
+    <p class="text-sm sm:text-base text-slate-400 leading-relaxed">
+      Hacer compras internacionales en Amazon, AliExpress o pagar suscripciones como Netflix y ChatGPT puede costarte entre un 3% y un 8% extra si no conoces cómo aplican la TRM los bancos en Colombia. Aquí te explicamos cómo evitarlo.
+    </p>
+  </header>
+
+  <!-- Banner Publicidad Superior -->
+  <%- include('partials/ad-slot') %>
+
+  <!-- Contenido Principal -->
+  <div class="space-y-6 text-sm leading-relaxed">
+    
+    <div class="rounded-2xl bg-emerald-950/30 border border-emerald-500/30 p-5">
+      <h3 class="font-bold text-emerald-400 text-sm mb-1">💡 La regla de oro que te ahorrará miles de pesos:</h3>
+      <p class="text-xs text-slate-300">
+        Cuando una tienda como Amazon, PayPal, eBay o una pasarela de pago te pregunte: <i>"¿Deseas pagar en Pesos Colombianos (COP) o en Dólares (USD)?"</i>, <b>elige SIEMPRE Dólares (USD)</b>.
+      </p>
+    </div>
+
+    <h2 class="text-lg font-bold text-white pt-2">1. La trampa de la "Conversión Dinámica de Divisas" (DCC)</h2>
+    <p>
+      Muchas personas eligen pagar en pesos pensando que así tienen mayor control del gasto. Sin embargo, cuando dejas que Amazon o PayPal hagan la conversión a COP, ellos aplican un tipo de cambio comercial propio con un recargo oculto del <b>4% al 7% por encima de la TRM oficial</b>.
+    </p>
+    <p>
+      Si pagas en <b>USD</b>, la conversión la realiza la franquicia de tu tarjeta (Visa o Mastercard) junto a tu banco colombiano, la cual se liquida a la <b>TRM oficial vigente</b> con comisiones mucho más bajas o nulas.
+    </p>
+
+    <h2 class="text-lg font-bold text-white pt-2">2. ¿Qué TRM te aplica tu banco colombiano?</h2>
+    <p>
+      Un error frecuente es pensar que el precio en pesos se fija en el instante exacto en que presionas "Comprar". En la práctica financiera:
+    </p>
+    <ul class="list-disc pl-5 space-y-2 text-slate-400">
+      <li><b>Momento de autorización:</b> Cuando compras, el banco hace un bloqueo preventivo del cupo usando una TRM estimada del día.</li>
+      <li><b>Momento de liquidación (Facturación):</b> La transacción tarda entre 24 y 48 horas hábiles en ser confirmada por el comercio. El banco liquida la deuda con la <b>TRM oficial del día en que se procesa el extracto</b>.</li>
+    </ul>
+
+    <h2 class="text-lg font-bold text-white pt-2">3. Comparativa de Comisiones Internacionales en Colombia</h2>
+    <p>
+      Dependiendo de la entidad bancaria que utilices, las comisiones por transacciones internacionales en dólares varían sustancialmente:
+    </p>
+
+    <div class="overflow-x-auto rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
+      <table class="w-full text-left text-xs">
+        <thead class="border-b border-slate-800 text-slate-400">
+          <tr>
+            <th class="pb-2">Entidad / Tarjeta</th>
+            <th class="pb-2">Comisión Internacional</th>
+            <th class="pb-2">Tasa de Conversión</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-800/60 text-slate-300">
+          <tr>
+            <td class="py-2.5 font-bold text-white">Nu Colombia (Mastercard)</td>
+            <td class="py-2.5 text-emerald-400 font-semibold">0% comisión extra</td>
+            <td class="py-2.5">TRM Mastercard oficial</td>
+          </tr>
+          <tr>
+            <td class="py-2.5 font-bold text-white">Lulo Bank / Ualá</td>
+            <td class="py-2.5 text-emerald-400 font-semibold">0% - 1%</td>
+            <td class="py-2.5">TRM Visa / Mastercard</td>
+          </tr>
+          <tr>
+            <td class="py-2.5 font-bold text-white">Bancolombia / Davivienda</td>
+            <td class="py-2.5 text-amber-400">1% a 2% según tarjeta</td>
+            <td class="py-2.5">TRM del día de facturación</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="text-lg font-bold text-white pt-2">4. Cómo calcular exactamente cuánto pagarás hoy</h2>
+    <p>
+      Antes de confirmar cualquier compra en dólares, entra a nuestra <a href="/" class="text-emerald-400 underline font-semibold">calculadora en vivo de Dólar AppzPlay</a>. Solo escribe el monto en USD para conocer al segundo el valor exacto en pesos colombianos con la TRM oficial certificada de la Superfinanciera.
+    </p>
+
+  </div>
+
+  <!-- Botón hacia la calculadora -->
+  <div class="rounded-3xl bg-slate-900 border border-slate-800 p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div>
+      <h4 class="font-bold text-white text-sm">¿Vas a comprar algo hoy?</h4>
+      <p class="text-xs text-slate-400">Consulta la TRM oficial de hoy y calcula en un clic.</p>
+    </div>
+    <a href="/" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition-colors shadow-lg shadow-emerald-600/20 shrink-0">
+      Ir a la Calculadora &rarr;
+    </a>
+  </div>
+
+  <!-- Banner Publicidad Inferior -->
+  <%- include('partials/ad-slot') %>
+
+</article>
+
+<%- include('partials/footer') %>
