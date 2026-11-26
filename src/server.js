@@ -12,7 +12,7 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 3000;
 const SITE_URL = process.env.SITE_URL || 'https://dolar.appzplay.online';
-const ADSENSE_ID = process.env.ADSENSE_CLIENT_ID || 'ca-pub-XXXXXXXXXXXXXXXX';
+const ADSENSE_ID = process.env.ADSENSE_CLIENT_ID || 'ca-pub-4726347306057517';
 const TELEGRAM_URL = process.env.TELEGRAM_CHANNEL_URL || 'https://t.me/+hLULrDoazSwzNWNh';
 
 // Configurar EJS como motor de plantillas
